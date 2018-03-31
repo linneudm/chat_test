@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.views import LoginView
+from website import urls as website_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/login/', LoginView.as_view()),
-    path('', include('django_private_chat.urls')),
+    path('chat/', include('django_private_chat.urls')),
+    path('',include(website_urls)),
 ]
